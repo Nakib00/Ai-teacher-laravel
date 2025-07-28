@@ -44,7 +44,6 @@ class AuthController extends Controller
         ]);
 
         $jwt_token = auth('api')->login($user);
-        $livekit_data = $this->liveKitService->generateToken($user);
 
         $responseData = [
             'user' => [
@@ -52,8 +51,6 @@ class AuthController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'token' => $jwt_token,
-                'livekit_token' => $livekit_data['token'],
-                'room' => $livekit_data['room']
             ]
         ];
         return $this->successResponse($responseData, 'Registration successful');
@@ -68,7 +65,6 @@ class AuthController extends Controller
         }
 
         $user = auth('api')->user();
-        $livekit_data = $this->liveKitService->generateToken($user);
 
         $responseData = [
             'user' => [
@@ -76,27 +72,8 @@ class AuthController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'token' => $token,
-                'livekit_token' => $livekit_data['token'],
-                'room' => $livekit_data['room']
             ]
         ];
         return $this->successResponse($responseData, 'Login successful');
-    }
-
-    public function getLiveKitToken(Request $request)
-    {
-        $user = auth('api')->user();
-        $livekit_data = $this->liveKitService->generateToken($user);
-
-        $responseData = [
-            'user' => [
-                'user_id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'livekit_token' => $livekit_data['token'],
-                'room' => $livekit_data['room']
-            ]
-        ];
-        return $this->successResponse($responseData, 'LiveKit token generated successfully');
     }
 }
