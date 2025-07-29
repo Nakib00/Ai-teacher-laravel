@@ -78,7 +78,7 @@ class ClassBookController extends Controller
         try {
             if ($id) {
                 // Fetch a specific book by ID
-                $classBook = ClassBook::with(['schoolClass'])->find($id);
+                $classBook = ClassBook::with(['schoolClass'])->where($id)->get();
 
                 if (!$classBook) {
                     return response()->json([
