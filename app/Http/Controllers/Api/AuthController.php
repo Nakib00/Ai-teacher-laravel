@@ -80,19 +80,15 @@ class AuthController extends Controller
 
     public function getProfile($id)
     {
-      
-
-        
-
+       
         $user = User::find($id);
 
         $responseData = [
-            'user' => [
-                'user_id' => $user->id,
+            
                 'user' => $user,
               
                
-            ]
+            
         ];
         return $this->successResponse($responseData, 'Login successful');
     }
