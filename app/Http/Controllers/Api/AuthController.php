@@ -76,4 +76,24 @@ class AuthController extends Controller
         ];
         return $this->successResponse($responseData, 'Login successful');
     }
+
+
+    public function getProfile()
+    {
+      
+
+        
+
+        $user = auth('api')->user();
+
+        $responseData = [
+            'user' => [
+                'user_id' => $user->id,
+                'user' => $user,
+              
+               
+            ]
+        ];
+        return $this->successResponse($responseData, 'Login successful');
+    }
 }

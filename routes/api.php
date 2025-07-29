@@ -12,7 +12,9 @@ use App\Http\Controllers\Api\AiTeacherController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+
 Route::middleware('auth:api')->group(function () {
+    Route::get('/get-profile', [AuthController::class, 'getProfile']);
     Route::get('/teachers', [AiTeacherController::class, 'index']);
     Route::post('/token', [AiTeacherController::class, 'getLiveKitToken']);
    
