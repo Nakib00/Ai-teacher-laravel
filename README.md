@@ -279,7 +279,7 @@ Use the following token for API authentication:
 
 
 
-php artisan make:model SchoolClass -mc
+php artisan make:model ClassBook -mc
 
 
 php artisan make:migration MainCategories

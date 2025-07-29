@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\SchoolClassController;
+use App\Http\Controllers\ClassBookController;
 
 use App\Http\Controllers\Api\AiTeacherController;
 
@@ -13,6 +14,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     Route::get('/teachers', [AiTeacherController::class, 'index']);
     Route::post('/token', [AiTeacherController::class, 'getLiveKitToken']);
+   
     Route::post('/addClass', [SchoolClassController::class, 'addClass']);
     Route::get('/getAllClass', [SchoolClassController::class, 'getClass']);
+
+    Route::post('/addBook', [ClassBookController::class, 'addBook']);
+    Route::get('/getBookOfClass', [ClassBookController::class, 'getBook']);
 });
