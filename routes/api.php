@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\ClassBookController;
+use App\Http\Controllers\ChapterBookController;
 
 use App\Http\Controllers\Api\AiTeacherController;
 
@@ -20,4 +21,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/addBook', [ClassBookController::class, 'addBook']);
     Route::get('/getBookOfClass', [ClassBookController::class, 'getBook']);
+
+
+    Route::post('/add-chapter', [ChapterBookController::class, 'addChapter']);
+    Route::get('/get-chapter', [ChapterBookController::class, 'getChapter']);
 });
