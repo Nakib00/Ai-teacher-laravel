@@ -75,7 +75,7 @@ class ChapterBookController extends Controller
         try {
             if ($id) {
                 // Fetch a specific chapter by ID, eager load the associated book
-                $chapterBook = ChapterBook::with('book')->find($id);
+                $chapterBook = ChapterBook::with('book')->where('book_id',$id)->get();
 
                 if (!$chapterBook) {
                     return response()->json([
