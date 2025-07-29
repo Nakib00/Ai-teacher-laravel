@@ -78,13 +78,13 @@ class AuthController extends Controller
     }
 
 
-    public function getProfile()
+    public function getProfile($id)
     {
       
 
         
 
-        $user = auth('api')->user();
+        $user = User::find($id);
 
         $responseData = [
             'user' => [
