@@ -94,7 +94,7 @@ class ClassBookController extends Controller
                 ], 200);
             } else {
                 // Fetch all books or filter them
-                $query = ClassBook::with(['schoolClass', 'school']);
+                $query = ClassBook::with(['schoolClass']);
 
                 // Filter by class_id if provided in query parameters
                 if ($request->has('class_id')) {
