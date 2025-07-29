@@ -20,9 +20,9 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/getAllClass', [SchoolClassController::class, 'getClass']);
 
     Route::post('/addBook', [ClassBookController::class, 'addBook']);
-    Route::get('/getBookOfClass', [ClassBookController::class, 'getBook']);
+    Route::get('/getBookOfClass/{id}', [ClassBookController::class, 'getBook']);
 
 
     Route::post('/add-chapter', [ChapterBookController::class, 'addChapter']);
-    Route::get('/get-chapter', [ChapterBookController::class, 'getChapter']);
+    Route::get('/get-chapter/{id}', [ChapterBookController::class, 'getChapter']);
 });
