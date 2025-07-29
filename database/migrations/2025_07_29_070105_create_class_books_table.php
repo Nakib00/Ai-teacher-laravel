@@ -28,9 +28,8 @@ return new class extends Migration
             // Add school_id as a nullable foreign key
             // Assumes 'schools' table exists or will be created
             $table->foreignId('school_id')
-                  ->nullable()
-                  ->constrained('schools') // Assumes 'schools' table exists
-                  ->onDelete('set null'); // Optional: define behavior on parent deletion
+                  ->nullable();
+                 
             // Add image_url column, allowing it to be null
             $table->string('image_url')->nullable();
             $table->timestamps();

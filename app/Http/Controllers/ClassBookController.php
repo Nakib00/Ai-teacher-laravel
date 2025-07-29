@@ -26,7 +26,7 @@ class ClassBookController extends Controller
                 'is_active' => 'boolean', // Optional, defaults to true in migration
                 'medium' => 'required|string|max:50', // e.g., 'Bengali', 'English'
                 'class_id' => 'required|integer|exists:school_classes,id', // Ensure class_id exists
-                'school_id' => 'nullable|integer|exists:schools,id', // Ensure school_id exists if provided
+                'school_id' => 'nullable|integer', // Ensure school_id exists if provided
                 'image_url' => 'nullable|url|max:2048', // Validate as a URL, max 2MB
             ]);
 
