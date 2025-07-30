@@ -27,19 +27,13 @@ return new class extends Migration
 
             // Using unsignedBigInteger for foreign keys is standard as 'id()' creates a big integer.
             $table->foreignId('chapter_id')
-                  ->nullable() // Can be null if a topic exists independently or before chapter assignment
-                  ->constrained() // Assumes a 'chapters' table exists or will be created
-                  ->onDelete('set null'); // If a chapter is deleted, set this to null, don't delete the topic
+                  ->nullable(); // If a chapter is deleted, set this to null, don't delete the topic
 
             $table->foreignId('subject_id')
-                  ->nullable() // Can be null
-                  ->constrained() // Assumes a 'subjects' table
-                  ->onDelete('set null');
+                  ->nullable();
 
             $table->foreignId('class_id')
-                  ->nullable() // Can be null
-                  ->constrained() // Assumes a 'classes' table
-                  ->onDelete('set null');
+                  ->nullable();
 
             $table->timestamps(); // `created_at` and `updated_at` columns
         });
