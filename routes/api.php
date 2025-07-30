@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\ClassBookController;
 use App\Http\Controllers\ChapterBookController;
+use App\Http\Controllers\TopicController;
 
 use App\Http\Controllers\Api\AiTeacherController;
 
@@ -27,4 +28,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/add-chapter', [ChapterBookController::class, 'addChapter']);
     Route::get('/get-chapter/{id}', [ChapterBookController::class, 'getChapter']);
+
+
+    Route::post('/add-topic', [TopicController::class, 'addTopic']);
+    Route::get('/get-topic-by-chapter/{id}', [TopicController::class, 'getTopicsByChapter']);
 });

@@ -88,8 +88,8 @@ class AuthController extends Controller
                 'user' => $user,
               
                
-            
+             
         ];
-        return $this->successResponse($responseData, 'Login successful');
+        return $this->successResponse($responseData, 'Profile Fetched');
     }
 }
