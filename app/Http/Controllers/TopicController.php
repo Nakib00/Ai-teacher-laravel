@@ -51,9 +51,9 @@ class TopicController extends Controller
                 'type' => 'nullable|string|max:50',
                 'note' => 'nullable|string',
                 'points' => 'integer|min:0',
-                'chapter_id' => 'nullable|exists:chapters,id', // Ensure chapter_id exists in chapters table
-                'subject_id' => 'nullable|exists:subjects,id', // Ensure subject_id exists in subjects table
-                'class_id' => 'nullable|exists:school_classes,id', // Ensure class_id exists in school_classes table
+                'chapter_id' => 'nullable', // Ensure chapter_id exists in chapters table
+                'subject_id' => 'nullable', // Ensure subject_id exists in subjects table
+                'class_id' => 'nullable', // Ensure class_id exists in school_classes table
             ]);
 
             // Create a new Topic instance
