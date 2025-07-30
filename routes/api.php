@@ -18,7 +18,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/get-profile/{id}', [AuthController::class, 'getProfile']);
     Route::get('/teachers', [AiTeacherController::class, 'index']);
     Route::post('/token', [AiTeacherController::class, 'getLiveKitToken']);
-   
+
     Route::post('/addClass', [SchoolClassController::class, 'addClass']);
     Route::get('/getAllClass', [SchoolClassController::class, 'getClass']);
 

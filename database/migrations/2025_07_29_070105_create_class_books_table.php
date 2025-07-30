@@ -23,13 +23,13 @@ return new class extends Migration
             $table->string('medium');
             // Add class_id as a foreign key
             $table->foreignId('class_id')
-                  ->constrained('school_classes') // Assumes 'school_classes' table exists
-                  ->onDelete('cascade'); // Optional: define behavior on parent deletion
+                ->constrained('school_classes') // Assumes 'school_classes' table exists
+                ->onDelete('cascade'); // Optional: define behavior on parent deletion
             // Add school_id as a nullable foreign key
             // Assumes 'schools' table exists or will be created
             $table->foreignId('school_id')
-                  ->nullable();
-                 
+                ->nullable();
+
             // Add image_url column, allowing it to be null
             $table->string('image_url')->nullable();
             $table->timestamps();
