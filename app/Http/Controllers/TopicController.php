@@ -50,7 +50,7 @@ class TopicController extends Controller
                 'is_active' => 'boolean',
                 'type' => 'nullable|string|max:50',
                 'note' => 'nullable|string',
-                'points' => 'integer|min:0',
+                'points' => 'integer|min:0', 
                 'chapter_id' => 'nullable', // Ensure chapter_id exists in chapters table
                 'subject_id' => 'nullable', // Ensure subject_id exists in subjects table
                 'class_id' => 'nullable', // Ensure class_id exists in school_classes table
