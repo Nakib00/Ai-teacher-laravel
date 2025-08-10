@@ -11,7 +11,6 @@ class ChapterBookController extends Controller
 {
     /**
      * Add a new chapter to a book.
-     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -116,6 +115,35 @@ class ChapterBookController extends Controller
                     'data' => $chapterBooks,
                 ], 200);
             }
+        } catch (\Exception $e) {
+            // Handle any errors during retrieval
+            return response()->json([
+                'status' => 500,
+                'message' => 'An error occurred while retrieving chapters.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
+    public function getAllChapter()
+    {
+        try {
+            
+                // Fetch a specific chapter by ID, eager load the associated book
+                $chapterBook = ChapterBook::with('book')->get();
+
+                if (!$chapterBook) {
+                    return response()->json([
+                        'status' => 404,
+                        'message' => 'Chapter not found.',
+                    ], 404);
+                }
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Chapter retrieved successfully',
+                    'data' => $chapterBook,
+                ], 200);
+            
         } catch (\Exception $e) {
             // Handle any errors during retrieval
             return response()->json([

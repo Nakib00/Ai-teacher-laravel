@@ -279,7 +279,7 @@ Use the following token for API authentication:
 
 
 
-php artisan make:model Topic -mc
+php artisan make:model ReportModel -mc
 
 
 php artisan make:migration MainCategories

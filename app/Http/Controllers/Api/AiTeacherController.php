@@ -22,10 +22,13 @@ class AiTeacherController extends Controller
     /**
      * Get all AI teachers.
      */
-    public function index()
+    public function getTeacher()
     {
         $teachers = AiTeacher::all();
-        return $this->successResponse($teachers, 'AI teachers retrieved successfully');
+        return $this->successResponse([
+            'status' => 'success',
+            'data' =>  $teachers,
+            'message' => 'AI teachers retrieved successfully']);
     }
 
     /**

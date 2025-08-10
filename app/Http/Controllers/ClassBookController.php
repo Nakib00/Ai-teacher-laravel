@@ -128,6 +128,35 @@ class ClassBookController extends Controller
             ], 500);
         }
     }
+    public function getAllBook()
+    {
+        try {
+           
+                // Fetch a specific book by ID
+                $classBook = ClassBook::with(['schoolClass'])->get();
+
+                if (!$classBook) {
+                    return response()->json([
+                        'status' => 404,
+                        'message' => 'Class book not found.',
+                    ], 404);
+                }
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Class book retrieved successfully',
+                    'data' => $classBook,
+                ], 200);
+           
+        } catch (\Exception $e) {
+            // Handle any errors during retrieval
+            return response()->json([
+                'status' => 500,
+                'message' => 'An error occurred while retrieving class books.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
 
     /**
      * Update an existing class book.
